@@ -1,5 +1,6 @@
 package com.jeffryhermanto.selfpromoapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_main.*
@@ -31,8 +32,11 @@ class MainActivity : AppCompatActivity() {
         val contactNumber = edit_text_contact_number.text.toString()
         val myDisplayName = edit_text_my_display_name.text.toString()
         val includeJunior = check_box_junior.isChecked
-        val jobTitle = spinner_job_title.selectedItem.toString()
+        val jobTitle = spinner_job_title.selectedItem?.toString()
         val immediateStart = check_box_immediate_start.isChecked
         val startDate = edit_text_start_date.text.toString()
+
+        val previewActivityIntent = Intent(this, PreviewActivity::class.java)
+        startActivity(previewActivityIntent)
     }
 }

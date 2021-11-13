@@ -3,6 +3,7 @@ package com.jeffryhermanto.selfpromoapp
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ArrayAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -14,6 +15,12 @@ class MainActivity : AppCompatActivity() {
         linear_layout_main_activity_container.setOnClickListener {
             clearEditTextsFocus()
         }
+
+        val jobTitleValues: Array<String> =
+            arrayOf("Android Developer", "iOS Developer", "Flutter Developer")
+        val jobTitleAdapter =
+            ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, jobTitleValues)
+        spinner_job_title.adapter = jobTitleAdapter
 
         button_preview.setOnClickListener {
             onPreviewClicked()
